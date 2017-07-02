@@ -1,7 +1,7 @@
 # Weekend Challenge 2 - Calculator
 
 - [x] Setup Folders/Files
-- [ ] Source all files
+- [x] Source all files
 - [ ] Setup framework for calculator in HTML
 - [ ] In client.js make a function to send inputed number & math type to server
 - [ ] In server.js receive info from client.js
