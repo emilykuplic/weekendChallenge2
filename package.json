@@ -1,0 +1,25 @@
+{
+  "name": "weekendchallenge2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilykuplic/weekendChallenge2.git"
+  },
+  "author": "Emily Kuplic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilykuplic/weekendChallenge2/issues"
+  },
+  "homepage": "https://github.com/emilykuplic/weekendChallenge2#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1"
+  }
+}
