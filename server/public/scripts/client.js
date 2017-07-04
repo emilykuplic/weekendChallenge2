@@ -39,7 +39,7 @@ $(document).ready(function(){
       data: {values: values},
       success: function(response) {
         console.log("x & y sent");
-        console.log(response.resultsArray);
+        console.log(response.result);
       }
     });
 

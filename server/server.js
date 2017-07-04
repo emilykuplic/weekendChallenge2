@@ -10,13 +10,8 @@ var result = '';
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-
-app.use(bodyParser.urlencoded({extended: true}));
-
-
 app.post("/math", function (req, res){
-  var math = req.body;
+  math = req.body;
   console.log('received math type', math.mathType);
   // Checking to see what our max number is ... Its a string... Which doesnt work in our function
   console.log(typeof math.mathType);
@@ -26,15 +21,32 @@ app.post("/math", function (req, res){
 });
 
 app.post("/numbers", function (req, res) {
-  //Here we are receiving our guessesArray from the client.js
+  //Receiving our valuesArray from the client.js
   valuesArray = req.body;
   console.log('received valuesArray', valuesArray.values);
-  // // run checkGuesses to see if they're right/low/high
+  // // run mathResults (this is currently not working!!!!)
   mathResults();
   console.log(result);
-  res.send({result});
+  res.send({values :result});
 });
 
+// function
+// a function to check do math based on valuesArray & mathType variable
+function mathResults() {
+    if (math.mathType == "add")
+    {result = (Number(valuesArray.values[0])) + (Number(valuesArray.values[1]));
+    }
+    else if (math.mathType == "subtract")
+    {result = (Number(valuesArray.values[0])) - (Number(valuesArray.values[1]));
+    }
+    else if (math.mathType == "multiply")
+    {result = (Number(valuesArray.values[0])) * (Number(valuesArray.values[1]));
+    }
+    else if (math.mathType == "divide")
+    {result = (Number(valuesArray.values[0])) / (Number(valuesArray.values[1]));
+    }
+    console.log(result);
+  }
 
 // Catch all
 app.get('/*', function(req, res){
@@ -47,21 +59,3 @@ app.get('/*', function(req, res){
 app.listen(port, function(){
   console.log('Server running on port', port);
 });
-
-// functions
-// a function to check do math based on valuesArray & mathType variable
-function mathResults() {
-  // result = 0;
-    if (math.mathType == "add")
-    { result = (Number(valuesArray.values[0])) + (Number(valuesArray.values[1]));
-    }
-    else if (math.mathType == "subtract")
-    {result = (Number(valuesArray.values[0])) - (Number(valuesArray.values[1]));
-    }
-    else if (math.mathType == "multiply")
-    {result = (Number(valuesArray.values[0])) * (Number(valuesArray.values[1]));
-    }
-    else if (math.mathType == "divide")
-    {result = (Number(valuesArray.values[0])) / (Number(valuesArray.values[1]));
-    }
-  }
