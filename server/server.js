@@ -27,11 +27,26 @@ app.post("/numbers", function (req, res) {
   // // run mathResults (this is currently not working!!!!)
   mathResults();
   console.log(result);
-  res.send({values :result});
+  console.log(resultArray);
+  res.send({values : resultArray});
 });
 
+
+// Catch all
+app.get('/*', function(req, res){
+  // http://localhost:5002/scripts/client.js
+  // scripts/client.js === req.params[0];
+  var file = req.params[0] || '/views/index.html';
+  res.sendFile(path.join(__dirname, '/public/', file));
+});
+
+app.listen(port, function(){
+  console.log('Server running on port', port);
+});
+
+
 // function
-// a function to check do math based on valuesArray & mathType variable
+// a function to do math based on valuesArray & mathType variable
 function mathResults() {
     if (math.mathType == "add")
     {result = (Number(valuesArray.values[0])) + (Number(valuesArray.values[1]));
@@ -45,17 +60,5 @@ function mathResults() {
     else if (math.mathType == "divide")
     {result = (Number(valuesArray.values[0])) / (Number(valuesArray.values[1]));
     }
-    console.log(result);
+    resultArray = {result:[result]};
   }
-
-// Catch all
-app.get('/*', function(req, res){
-  // http://localhost:5002/scripts/client.js
-  // scripts/client.js === req.params[0];
-  var file = req.params[0] || '/views/index.html';
-  res.sendFile(path.join(__dirname, '/public/', file));
-});
-
-app.listen(port, function(){
-  console.log('Server running on port', port);
-});
