@@ -40,7 +40,9 @@ $(document).ready(function(){
       data: {values: values},
       success: function(response) {
         console.log("x & y sent");
-        console.log(response.result);
+        console.log(response); //result = undefined - can't figure out what needs to be console loogged tried many options.
+        $('#calculatorResults').show();
+        $('#result').text(response.result[0]);
       }
     });
 

@@ -17,7 +17,7 @@ app.post("/math", function (req, res){
   console.log(typeof math.mathType);
   // since we have to respond this is our response message
   res.send({message: 'Math type now stored on server'});
- console.log(math);
+  console.log(math);
 });
 
 app.post("/numbers", function (req, res) {
@@ -28,7 +28,7 @@ app.post("/numbers", function (req, res) {
   mathResults();
   console.log(result);
   console.log(resultArray);
-  res.send({values : resultArray});
+  res.send(resultArray);
 });
 
 
@@ -48,17 +48,17 @@ app.listen(port, function(){
 // function
 // a function to do math based on valuesArray & mathType variable
 function mathResults() {
-    if (math.mathType == "add")
-    {result = (Number(valuesArray.values[0])) + (Number(valuesArray.values[1]));
-    }
-    else if (math.mathType == "subtract")
-    {result = (Number(valuesArray.values[0])) - (Number(valuesArray.values[1]));
-    }
-    else if (math.mathType == "multiply")
-    {result = (Number(valuesArray.values[0])) * (Number(valuesArray.values[1]));
-    }
-    else if (math.mathType == "divide")
-    {result = (Number(valuesArray.values[0])) / (Number(valuesArray.values[1]));
-    }
-    resultArray = {result:[result]};
+  if (math.mathType == "add")
+  {result = (Number(valuesArray.values[0])) + (Number(valuesArray.values[1]));
   }
+  else if (math.mathType == "subtract")
+  {result = (Number(valuesArray.values[0])) - (Number(valuesArray.values[1]));
+  }
+  else if (math.mathType == "multiply")
+  {result = (Number(valuesArray.values[0])) * (Number(valuesArray.values[1]));
+  }
+  else if (math.mathType == "divide")
+  {result = (Number(valuesArray.values[0])) / (Number(valuesArray.values[1]));
+  }
+  resultArray = {result:[result]};
+}
